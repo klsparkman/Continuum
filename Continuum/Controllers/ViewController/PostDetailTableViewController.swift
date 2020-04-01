@@ -9,15 +9,26 @@
 import UIKit
 
 class PostDetailTableViewController: UITableViewController {
+    
+    // Mark: - Outlets
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    
+    var posts: Post? {
+        didSet {
+            DispatchQueue.main.async {
+                self.updateViews()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func updateViews() {
+        photoImageView.image = posts?.photo
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -76,6 +87,41 @@ class PostDetailTableViewController: UITableViewController {
         return true
     }
     */
+    
+    // Mark: - Actions
+    @IBAction func commentButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Cancel", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textfield) in
+            textfield.placeholder = "Comments"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            guard let commentText = alert.textFields?.first?.text, !commentText.isEmpty,
+                let post = self.posts else {return}
+            PostController.shared.addComment(text: commentText, post: post) { (result) in
+                switch result {
+                case .success(let comment):
+                    self.posts?.comments.append(comment)
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print(error, error.localizedDescription)
+                }
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+    }
+    
+    
+    @IBAction func followPostButtonTapped(_ sender: Any) {
+    }
+    
 
     /*
     // MARK: - Navigation
