@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		35130FE32433E5B400FD213A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35130FE22433E5B400FD213A /* AppDelegate.swift */; };
 		35130FE52433E5B400FD213A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35130FE42433E5B400FD213A /* SceneDelegate.swift */; };
-		35130FE72433E5B400FD213A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35130FE62433E5B400FD213A /* ViewController.swift */; };
 		35130FEA2433E5B400FD213A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35130FE82433E5B400FD213A /* Main.storyboard */; };
 		35130FEC2433E5B600FD213A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35130FEB2433E5B600FD213A /* Assets.xcassets */; };
 		35130FEF2433E5B600FD213A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35130FED2433E5B600FD213A /* LaunchScreen.storyboard */; };
@@ -19,13 +18,14 @@
 		351310052433ED0000FD213A /* AddPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351310042433ED0000FD213A /* AddPostTableViewController.swift */; };
 		351310072433ED3900FD213A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351310062433ED3900FD213A /* Post.swift */; };
 		351310092433F3DB00FD213A /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351310082433F3DB00FD213A /* PostController.swift */; };
+		3513100B2433F68500FD213A /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513100A2433F68500FD213A /* PostError.swift */; };
+		3513100F24340FB800FD213A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3513100E24340FB800FD213A /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		35130FDF2433E5B400FD213A /* Continuum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Continuum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35130FE22433E5B400FD213A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35130FE42433E5B400FD213A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		35130FE62433E5B400FD213A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35130FE92433E5B400FD213A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35130FEB2433E5B600FD213A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35130FEE2433E5B600FD213A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +37,8 @@
 		351310042433ED0000FD213A /* AddPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTableViewController.swift; sourceTree = "<group>"; };
 		351310062433ED3900FD213A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		351310082433F3DB00FD213A /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		3513100A2433F68500FD213A /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
+		3513100E24340FB800FD213A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,6 @@
 				35130FFB2433EA5900FD213A /* Model */,
 				35130FF72433E71A00FD213A /* Continuum.entitlements */,
 				35130FF62433E6B300FD213A /* Resources */,
-				35130FE62433E5B400FD213A /* ViewController.swift */,
 				35130FE82433E5B400FD213A /* Main.storyboard */,
 			);
 			path = Continuum;
@@ -90,6 +91,7 @@
 				35130FEB2433E5B600FD213A /* Assets.xcassets */,
 				35130FED2433E5B600FD213A /* LaunchScreen.storyboard */,
 				35130FF02433E5B600FD213A /* Info.plist */,
+				3513100A2433F68500FD213A /* PostError.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -113,6 +115,7 @@
 		35130FFC2433EA5E00FD213A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3513100E24340FB800FD213A /* PostTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,12 +220,13 @@
 			files = (
 				351310032433EC5200FD213A /* PostDetailTableViewController.swift in Sources */,
 				351310092433F3DB00FD213A /* PostController.swift in Sources */,
-				35130FE72433E5B400FD213A /* ViewController.swift in Sources */,
+				3513100B2433F68500FD213A /* PostError.swift in Sources */,
 				351310072433ED3900FD213A /* Post.swift in Sources */,
 				35130FE32433E5B400FD213A /* AppDelegate.swift in Sources */,
 				35130FE52433E5B400FD213A /* SceneDelegate.swift in Sources */,
 				351310052433ED0000FD213A /* AddPostTableViewController.swift in Sources */,
 				351310012433EA9200FD213A /* PostListTableViewController.swift in Sources */,
+				3513100F24340FB800FD213A /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
