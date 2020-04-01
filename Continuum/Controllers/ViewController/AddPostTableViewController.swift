@@ -10,7 +10,12 @@ import UIKit
 
 class AddPostTableViewController: UITableViewController {
     
+    var selectedImage: UIImage?
+    
     @IBOutlet weak var selectImageButton: UIButton!
+    
+    @IBOutlet weak var captionTextField: UITextField!
+    
     
 
     override func viewDidLoad() {
@@ -31,11 +36,21 @@ class AddPostTableViewController: UITableViewController {
 
     // Mark: - Actions
     @IBAction func selectImageButtonTapped(_ sender: Any) {
-        let image = #imageLiteral(resourceName: "spaceEmptyState")
     }
     
     @IBAction func addPostButtonTapped(_ sender: Any) {
+        
+        guard let photo = selectedImage,
+            let caption =  captionTextField.text else { return }
+        PostController.shared.createPostWith(image: photo, caption: caption) { (post) in
+            self.tabBarController?.selectedIndex = 0
+        }
     }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
     
     
     
